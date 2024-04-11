@@ -1,8 +1,12 @@
+body,html{
+  color:blue
+}
 #showWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 50%;
+
   }
   
   img {
@@ -13,5 +17,6 @@
     flex-direction: column;
     justify-content: center;
     width: 40%;
+    background-image:"./community.png" ;
   }
   
