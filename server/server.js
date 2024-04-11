@@ -2,7 +2,6 @@ import express from "express";
 
 const app = express();
 
-
 app.use(express.json());
 app.use(cors());
 
@@ -14,12 +13,12 @@ app.get("/", function (request, response) {
   response.json("You are looking at my root route. How roude.");
 });
 
-app.get("/games", function (request, response) {
+app.get("/show", function (request, response) {
   // here we use .all instead of .run because we aren't INSERTing, but selecting. So we want to see ALL the results
-  const games = db.prepare("SELECT * FROM games").all();
-  response.json(games);
+  const show = db.prepare("SELECT * FROM show").all();
+  response.json(show);
 });
 
 app.listen(8080, function () {
-  console.log("AAAAAAAAAAAAAAAAAH... 8080");
+  console.log("Hello.. 8080");
 });

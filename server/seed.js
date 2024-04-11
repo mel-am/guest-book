@@ -1,68 +1,79 @@
 import Database from "better-sqlite3";
-const db = new Database("database.db");
+const db = new Database("database2.db");
 
-// create games table
+// create a table
 db.exec(`
-    CREATE TABLE IF NOT EXISTS games (
+    CREATE TABLE IF NOT EXISTS tvshow (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL UNIQUE,
-        year INTEGER NOT NULL,
+        title TEXT NOT NULL,
+        season INTEGER NOT NULL,
+        episode INTEGER NOT NULL,
         imgUrl TEXT
     )
 `);
 
-// populate the games table
-const insertGame = db.prepare(`
-    INSERT INTO games (name, year, imgUrl) VALUES (?, ?, ?)
+// populate the show table
+const insertShow = db.prepare(`
+    INSERT INTO tvshow (title, season, episode, imgUrl) VALUES (?, ?, ?, ?)
 `);
 
-insertGame.run(
-  "Pokemon Yellow",
-  2000,
-  "https://archives.bulbagarden.net/media/upload/9/95/Yellow_EN_boxart.png"
+insertShow.run(
+  "Critical Film Studies",
+  2,
+  19,
+  "https://ew.com/thmb/RMJf99GXFLEivQbseq1VDDWVmqY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-149657572-ac339e70aaa64445b37a4abe2c4e10f7.jpg"
 );
-insertGame.run(
-  "Nuclear Strike",
-  1997,
+insertShow.run(
+  "Cooperative Polygraphy",
+  5,
+  4,
   "https://upload.wikimedia.org/wikipedia/en/thumb/9/97/Nuclear_Strike_cover_art.png/220px-Nuclear_Strike_cover_art.png"
 );
-insertGame.run(
-  "GTA2",
-  1999,
-  "https://upload.wikimedia.org/wikipedia/en/2/2e/GTA2_Box_art.jpg"
+insertShow.run(
+  "Mixology Certification",
+  2,
+  10,
+  "https://ew.com/thmb/g3geIwCu5FEAEQcAWhjKNuPZmGs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-138386233-70dcc7ba12b94e149c4ee74f96e676e9.jpg"
 );
-insertGame.run(
-  "Fallout 3",
-  2008,
-  "https://tse1.mm.bing.net/th?id=OIP.bY9nDZgKl-_nx1PbsygACgHaEK&pid=Api"
+insertShow.run(
+  "Emotional Consequences of Broadcast Television",
+  6,
+  13,
+  "https://ew.com/thmb/qr_NLN0E1pvONeKR-Ql0MLJ9u5s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/TCDCOMM_EC297-031720ae6f274b9997c71f686dce8ddb.jpg"
 );
-insertGame.run(
-  "Descent",
-  1995,
-  "https://hips.hearstapps.com/digitalspyuk.cdnds.net/14/07/descent.jpg"
+insertShow.run(
+  "Pillows and Blankets",
+  3,
+  14,
+  "https://ew.com/thmb/Ql3Y-RVtbhpACiF6BxUDuXAbca4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-945469278-37d546cbc01848f38987c1b95ff71d30.jpg"
 );
-insertGame.run(
-  "Wings of Fury",
-  1987,
+insertShow.run(
+  "Cooperative Calligraphy",
+  2,
+  8,
   "https://i.ytimg.com/vi/ZZSwdqg6VE4/maxresdefault.jpg"
 );
-insertGame.run(
-  "Call of Duty",
-  2003,
-  "https://cdn.mobygames.com/covers/4083905-call-of-duty-windows-front-cover.jpg"
+insertShow.run(
+  "Basic Lupine Urology",
+  3,
+  17,
+  "https://ew.com/thmb/cf7lL6vUPYj-7bnPGosNg-rYTt0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-945854852-59ccb2e2e95c46219a551f6d61720d48.jpg"
 );
-insertGame.run(
-  "Outer Wilds",
-  2019,
-  "https://i.ytimg.com/vi/d6LGnVCL1_A/maxresdefault.jpg"
+insertShow.run(
+  "Modern Warfare",
+  1,
+  23,
+  "https://ew.com/thmb/fESlmK72UYjpPI7wabCF08sDjTw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-141249579-2c594b11e3144a01a433a27c4ffcdc2f.jpg"
 );
-insertGame.run(
-  "Dark Souls 3",
-  2016,
-  "https://assets-prd.ignimgs.com/2023/03/03/fromsoft-dlc-ranked-blogroll-1677863442346.jpg"
+insertShow.run(
+  "Paradigms of Human Memory",
+  2,
+  21,
+  "https://ew.com/thmb/IwT5QSyhcGyFl5e3k7FBcU9lzXQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-138418549-a2e435e54d4946d7a96bc773fc0c968d.jpg2346.jpg"
 );
-insertGame.run(
-  "Jazz Jackrabbit2",
-  1998,
-  "https://tcrf.net/images/thumb/9/90/Jazz_Jackrabbit_2-title.png/320px-Jazz_Jackrabbit_2-title.png"
+insertShow.run(
+  "Remedial Chaos Theory",
+  3,
+  3,
+  "https://ew.com/thmb/5SVxaYS0q0ec0USvdKyhQILxipk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Community2-d274890efbd94b2e94192006a35454d1.jpg"
 );
