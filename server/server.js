@@ -11,7 +11,7 @@ import Database from "better-sqlite3";
 const db = new Database("database2.db"); // go and get the existing db file
 
 app.get("/", function (request, response) {
-  response.json("You are looking at my root route. How roude.");
+  response.json("Why did the chicken cross the road?.");
 });
 
 app.get("/show", function (request, response) {
