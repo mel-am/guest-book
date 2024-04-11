@@ -41,7 +41,7 @@ function handleSubmitMessageForm(event) {
   const formData = new FormData(messageForm);
   const message = formData.get("message");
 
-  fetch("http://localhost:3000/messages", {
+  fetch("http://localhost:8080/messages", {
     method: "POST", // This is where we set the POST HTTP verb
     headers: {
       "Content-Type": "application/json", // This tells the server we're sending stringified JSON data
