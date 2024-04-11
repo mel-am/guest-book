@@ -1,29 +1,29 @@
-const gamesWrapper = document.getElementById("gamesWrapper");
+const showWrapper = document.getElementById("Wrapper");
 
-// get the games from my api
-async function getGames() {
+// get the show from my api
+async function getShow() {
   const response = await fetch(
-    "https://express-sql-games-demo.onrender.com/games"
+    "https://guest-book-1.onrender.com"
   );
-  const games = await response.json();
-  console.log(games);
+  const show = await response.json();
+  console.log(show);
 
-  // put the games onto the page
-  games.forEach(function (game) {
-    // DOM manipulation to put the games onto the html
+  // put the show onto the page
+  show.forEach(function (show) {
+    // DOM manipulation to put the show onto the html
     const h2 = document.createElement("h2");
     const p = document.createElement("p");
     const img = document.createElement("img");
 
-    h2.textContent = game.name;
-    p.textContent = `Came out in ${game.year}`;
-    img.src = game.imgUrl;
-    img.alt = game.name;
+    h2.textContent = show.name;
+    p.textContent = `Came out in ${show.year}`;
+    img.src = show.imgUrl;
+    img.alt = show.name;
 
-    gamesWrapper.appendChild(h2);
-    gamesWrapper.appendChild(p);
-    gamesWrapper.appendChild(img);
+    showWrapper.appendChild(h2);
+    showWrapper.appendChild(p);
+    showWrapper.appendChild(img);
   });
 }
 
-getGames();
+getShow();
