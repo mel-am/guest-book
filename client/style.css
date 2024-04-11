@@ -1,5 +1,5 @@
 body,html{
-  color:blue
+ background-color:blue;
 }
 #showWrapper {
     display: flex;
