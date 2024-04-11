@@ -8,5 +8,10 @@
   img {
     max-width: 100%;
   }
-
+  #message-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+  }
   
