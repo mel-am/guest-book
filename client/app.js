@@ -3,7 +3,7 @@ const showWrapper = document.getElementById("showWrapper");
 // get the show from my api
 async function getShow() {
   const response = await fetch(
-    "https://guest-book-sgg0.onrender.com"
+    "https://guest-book-1.onrender.com"
   );
   const show = await response.json();
   console.log(show);
