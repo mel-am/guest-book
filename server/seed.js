@@ -57,7 +57,7 @@ insertShow.run(
   "Cooperative Calligraphy",
   2,
   8,
-  "https://i.ytimg.com/vi/ZZSwdqg6VE4/maxresdefault.jpg"
+  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHP3Qdfi2ntjLzzBXsCU8PQUo1sB6YTaXwvxvNwm5ikQ3rYXNdkQW5o5Y6OxUpGDtMdX-bWW7JziQJWsZwOZCZTzhjsRZnL0G9BUa3cwMDgpyEzl-7Gk10cjijfFRylJVDEQ/s1600/Community2x08_0740.jpg"
 );
 insertShow.run(
   4,

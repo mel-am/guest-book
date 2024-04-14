@@ -3,8 +3,9 @@ const showWrapper = document.getElementById("showWrapper");
 // get the show from my api
 async function getShow() {
   const response = await fetch(
-    "https://guest-book-gj49.onrender.com"
-    // "http://localhost:8080/show"
+    "https://guest-book-gj49.onrender.com",
+    "https://guest-book-1.onrender.com",
+    // "http://localhost:8080/show",
   );
   const show = await response.json();
   console.log(show);
@@ -76,3 +77,12 @@ function displayReview(user, episode, review, opinion) {
 }
 
 messageForm.addEventListener("submit", handleSubmitMessageForm);
+
+document.addEventListener("DOMContentLoaded", function() {
+  var button = document.getElementById("gif-button");
+  var gifContainer = document.getElementById("gif-container");
+  function showGif() {
+    gifContainer.innerHTML = '<img src="./troy_thumbs_up.gif" alt="GIF">';
+  }
+  button.addEventListener("click", showGif);
+});
