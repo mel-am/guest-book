@@ -3,19 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Guest Book</title>
-  <script type="module" crossorigin src="/assets/index-DdCfEKRe.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B40T91O-.css">
+  <script type="module" crossorigin src="/assets/index-T1AwwhOj.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-iXE7_lHi.css">
 </head>
 <body>
+  <div id="header">
+  </div>  
+  <div id="heading">
     <h1>Community</h1>
-    <h2>Top 10 episodes</h2>
+    <h2>Top 10 episode of Community</h2></div>
     <div id="showWrapper"></div>
     <form id="message-form">
-        <input type="text" name="message" id="messageInput" placeholder="Name"/>
+          <div>
+        <label for="episode">Write a review. Firstly,select an episode:</label>
+        <select name="episode" id="episode">
+          <option value="Critical Film Studies">10. Critical Film Studies</option>
+          <option value="Cooperative Polygraphy">9. Cooperative Polygraphy</option>
+          <option value="Mixology Certification">8. Mixology Certification</option>
+          <option value="Emotional Consequences of Broadcast Television">7. Emotional Consequences of Broadcast Television</option>
+          <option value="Pillows and Blankets">6. Pillows and Blankets</option>
+          <option value="Cooperative Calligraphy">5. Cooperative Calligraphy</option>
+          <option value="Basic Lupine Urology">4. Basic Lupine Urology</option>
+          <option value="Modern Warfare">3. Modern Warfare</option>
+          <option value="Paradigms of Human Memory">2. Paradigms of Human Memory</option>
+          <option value="Remedial Chaos Theory">1. Remedial Chaos Theory</option>
+        </select>
+        
+        <label for="name">Username</label>
+        <input type="text" name="user" id="user" placeholder="Name">
         <br>
-        <input type="text-area" name="message" id="messageInput" placeholder="Type your message here"/>
-        <button type="submit">Send</button>
-        <img src="https://gettrendygifs.wordpress.com/2015/06/09/new-trending-gif-tagged-community-thumbs-up-troy/">
+        <label for="review-input">Review</label>
+        <textarea name="review" id="review" placeholder="Type your message here"></textarea>
+        <label for="fieldset">Do you agree?</label>
+        <br>
+        <input type="radio" name="opinion" id="agree" value="agree">
+          <label for="html">&#128077;</label>
+          <input type="radio" name="opinion" id="disagree" value="disagree">
+          <label for="css">&#128078;</label><br>
+        <button type="submit" id="submit">Send</button>
+      </div>
       </form>
+      <div id="submittedPost"></div>
 </body>
 </html>

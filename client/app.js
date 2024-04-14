@@ -4,6 +4,7 @@ const showWrapper = document.getElementById("showWrapper");
 async function getShow() {
   const response = await fetch(
     "https://guest-book-gj49.onrender.com"
+    // "http://localhost:8080/show"
   );
   const show = await response.json();
   console.log(show);
@@ -11,15 +12,18 @@ async function getShow() {
   // put the show onto the page
   show.forEach(function (show) {
     // DOM manipulation to put the show onto the html
+    const number = document.createElement("number");
     const h2 = document.createElement("h2");
     const p = document.createElement("p");
     const img = document.createElement("img");
 
-    h2.textContent = show.title;
-    p.textContent = `Was the ${show.episode} in ${show.season}`;
+    h2.textContent = `No.${show.number} - ${show.title}`
+    p.textContent = `This was the ${show.episode} episode in season ${show.season}`;
     img.src = show.imgUrl;
-    img.alt = show.title;
+    img.alt = show.episode;
 
+
+    showWrapper.appendChild(number);
     showWrapper.appendChild(h2);
     showWrapper.appendChild(p);
     showWrapper.appendChild(img);
@@ -28,33 +32,47 @@ async function getShow() {
 
 getShow();
 
-const messageForm = document.querySelector("#messageForm");
+const messageForm = document.querySelector("#message-form");
 
 function handleSubmitMessageForm(event) {
   event.preventDefault();
-  console.log("Form submitted!");
-  const messageForm = document.querySelector("#messageForm");
-
-function handleSubmitMessageForm(event) {
-  event.preventDefault();
+  console.log("Review submitted!")
 
   const formData = new FormData(messageForm);
-  const message = formData.get("message");
+  const user = formData.get("user");
+  const episode = document.getElementById("episode").value;
+  const review = formData.get("review");
+  const opinion = formData.get("opinion");
+  
+  
+  
 
-  fetch("http://localhost:8080/messages", {
-    method: "POST", // This is where we set the POST HTTP verb
-    headers: {
-      "Content-Type": "application/json", // This tells the server we're sending stringified JSON data
-    },
-    body: JSON.stringify({ message }),
-  });
+    fetch("http://localhost:8080/messages", {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json", 
+      },
+      body: JSON.stringify({ user, episode, review, opinion }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); 
+      displayReview(user, episode, review, opinion);
+      messageForm.reset();
+    });
 }
-app.use(express.json()); // ensure this is present so the server can understand JSON data
+function displayReview(user, episode, review, opinion) {
+  const submittedPost = document.getElementById('submittedPost');
+  const reviewPost = document.createElement('div');
+  reviewPost.innerHTML = `
+    <p><strong>Name:</strong> ${user}</p>
+    <p><strong>Review:</strong> ${review}</p>
+    <p><strong>Episode:</strong> ${episode}</p>
+    <p><strong>Opinion:</strong> ${opinion}</p>
+  `;
+  submittedPost.appendChild(reviewPost);
 
-app.post("/messages", function (req, res) {
-  console.log("req.body", req.body);
-  res.json({ status: "Message received!" });
-});// do something with the form data here
+  
 }
 
 messageForm.addEventListener("submit", handleSubmitMessageForm);
